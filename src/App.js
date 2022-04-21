@@ -22,10 +22,15 @@ function App() {
     setData([newItem, ...data]);
   };
 
+  const onRemove = (targetId) => {
+    const newData = data.filter((item) => item.id !== targetId);
+    setData(newData);
+  };
+
   return (
     <div className="App">
       <DiaryEditor onCreate={onCreate} />
-      <DiaryList list={data} />
+      <DiaryList list={data} onRemove={onRemove} />
     </div>
   );
 }
